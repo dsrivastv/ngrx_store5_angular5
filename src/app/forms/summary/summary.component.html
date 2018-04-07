@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-subtitle>Step <strong>3</strong> of <strong>3</strong></mat-card-subtitle>
+  <mat-card-title>Summary</mat-card-title>
+  <mat-card-content>
+    <h3>User</h3>
+    <p>
+      <strong>Name:</strong> {{(store | async)?.user.firstName}} {{(store | async)?.user.lastName}}
+    </p>
+    <p>
+      <strong>Gender:</strong> {{(store | async)?.user.gender | capitalize}}
+    </p>
+    <h3>Health</h3>
+    <p>
+      <strong>Height:</strong> {{(store | async)?.health.height}} in
+    </p>
+    <p>
+      <strong>Weight:</strong> {{(store | async)?.health.weight}} lb
+    </p>
+    <p>
+      <strong>BMI: </strong> {{(store | async)?.health.bmi}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="button" mat-raised-button color="accent" (click)="back()">BACK</button>
+    <button type="click" mat-raised-button color="accent" (click)="submit()">SUBMIT</button>
+  </mat-card-actions>
+</mat-card>

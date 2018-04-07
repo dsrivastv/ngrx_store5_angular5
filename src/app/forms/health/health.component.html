@@ -1,0 +1,15 @@
+<form novalidate [formGroup]="form" (submit)="next(health)">
+	<mat-card>
+		<mat-card-subtitle>Step <strong>2</strong> of <strong>3</strong></mat-card-subtitle>
+		<mat-card-title>Health</mat-card-title>
+		<mat-card-content>
+			<input formControlName="height" placeholder="Height"/>
+			<input formControlName="weight" placeholder="Weight"/>
+			<input formControlName="bmi" placeholder="BMI"/>
+		</mat-card-content>
+		<mat-card-actions>
+			<button type="button" mat-raised-button color="accent" (click)="back()">BACK</button>
+			<button type="submit" mat-raised-button color="accent">NEXT</button>
+		</mat-card-actions>
+	</mat-card>
+</form>

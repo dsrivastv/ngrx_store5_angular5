@@ -1,0 +1,39 @@
+<form novalidate [formGroup]="form" (submit)="next()">
+  <mat-card>
+    <mat-card-subtitle>Step <strong>1</strong> of <strong>3</strong></mat-card-subtitle>
+    <mat-card-title>User</mat-card-title>
+    <mat-card-content>
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input formControlName="firstName" class="form-control" placeholder="First name" id="firstName"/>
+        <div class="error" *ngIf="form.get('firstName').touched && form.get('firstName').hasError('required')">
+          <strong>First name is required</strong>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input formControlName="lastName" class="form-control" placeholder="Last name" id="lastName"/>
+        <div class="error" *ngIf="form.get('lastName').touched && form.get('lastName').hasError('required')">
+          <strong>Last name is required</strong>
+        </div>
+      </div>
+      <div class="form-group space">
+        <mat-radio-group formControlName="gender">
+          <mat-radio-button value="male">Male</mat-radio-button>
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="form-group">
+        <mat-checkbox formControlName="isAwesome">
+          I am awesome
+        </mat-checkbox>
+      </div>
+      <div *ngIf="form.get('isAwesome').value" class="form-group">
+        <input formControlName="awesomenessReason" placeholder="We already knew that, but tell us why"/>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" [disabled]="form.invalid" mat-raised-button color="accent">NEXT</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
