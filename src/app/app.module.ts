@@ -18,15 +18,19 @@ import { CapitalizePipe } from './forms/summary/capitalize.pipe';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SuccessDialogComponent} from './forms/summary/success-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent, UserComponent, HealthComponent, SummaryComponent, ResultComponent, CapitalizePipe
+    AppComponent, UserComponent, HealthComponent, SummaryComponent, ResultComponent, CapitalizePipe,
+    SuccessDialogComponent
   ],
+  entryComponents : [ SuccessDialogComponent ],
   imports: [
     BrowserModule, MatToolbarModule, Ng2MultiStepFormRoutingModule,
     MatCardModule, MatInputModule, ReactiveFormsModule, StoreModule.forRoot({user, health}),
-    MatRadioModule, MatCheckboxModule, MatDialogModule
+    MatRadioModule, MatCheckboxModule, MatDialogModule, BrowserAnimationsModule
   ],
   providers: [UserService, HealthService, RemoteService],
   bootstrap: [AppComponent]

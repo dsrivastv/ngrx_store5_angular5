@@ -13,7 +13,7 @@ import { SuccessDialogComponent } from './success-dialog.component';
   styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent {
-  dialogRef: MatDialog;
+  dialogRef: MatDialogRef<SuccessDialogComponent>;
 
   constructor(
     private store: Store<AppStore>,
@@ -33,12 +33,12 @@ export class SummaryComponent {
   }
 
   openDialog() {
-    //let config = new MatDialogConfig();
-    //config.viewContainerRef = this.viewContainerRef;
+    const config = new MatDialogConfig();
+    config.viewContainerRef = this.viewContainerRef;
 
-    //this.dialogRef = this.dialog.open(SuccessDialogComponent, config);
+    this.dialogRef = this.dialog.open(SuccessDialogComponent, config);
 
-    //this.dialogRef.afterClosed()
-      //.subscribe(event => this.router.navigateByUrl('user'))
+    this.dialogRef.afterClosed()
+      .subscribe(event => this.router.navigateByUrl('user'));
   }
 }
